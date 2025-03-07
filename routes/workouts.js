@@ -1,7 +1,7 @@
 const express = require('express');
-const {getWorkouts, createWorkout, getWorkout, deleteWorkout, updateWorkout} = require('../controllers/workoutControllers');
+const {getWorkouts, createWorkout, getWorkout, deleteWorkout, updateWorkout} = require('/var/task/controllers/workoutControllers');
 const router = express.Router();
-const Workout = require('../templets/WorkoutModel');
+const Workout = require('/var/task/templets/WorkoutModel');
 router.get('/', getWorkouts);
 
 // /GET single workout
