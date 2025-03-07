@@ -14,9 +14,9 @@ app.use((req, res, next)=>{
 })
 
 // routes
-// app.get("/", (req, res) => {
-//     res.json({mssg: "Welcome to my app!"})
-// })
+app.get("/", (req, res) => {
+    res.json({mssg: "Welcome to my app!"})
+})
 
 app.use('/api/workouts', workoutRoutes); // use the routes written in ./routes/workouts.js......just writes all routes writte in this files here.
 // the /api/workouts here and the one written in workouts.js file are going to be relative to its folder...i.e. the paths are concatenated.
