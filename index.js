@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 // require('dotenv').config();
-const workoutRoutes = require('/var/task/routes/workouts');
+const workoutRoutes = require('./routes/workouts');
 
 // express app
 const app = express();
-const MONGO_URI="mongodb+srv://merntester:1234@cluster0.7rn9h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-const PORT = 4000
+
 // middle ware
 app.use(express.json()); // if req has some data, this adds it to req. object.
 app.use((req, res, next)=>{
@@ -23,11 +22,11 @@ app.use('/api/workouts', workoutRoutes); // use the routes written in ./routes/w
 // the /api/workouts here and the one written in workouts.js file are going to be relative to its folder...i.e. the paths are concatenated.
 
 // connect to db
-mongoose.connect(MONGO_URI) // asyncronous
+mongoose.connect(process.env.MONGO_URI) // asyncronous
     .then(() => {
         // listening for requests
-        app.listen(PORT, () => {
-            console.log(`connected to DB and Listening on port ${PORT}...`);
+        app.listen(process.env.PORT, () => {
+            console.log(`connected to DB and Listening on port ${process.env.PORT}...`);
         });
     })
     .catch((err) => {
