@@ -1,4 +1,4 @@
-const Workout = require('../models/WorkoutModel');
+const Workout = require('../templets/WorkoutModel');
 const mongoose = require('mongoose');
 // get all workout
 const getWorkouts = async (req, res) => {
