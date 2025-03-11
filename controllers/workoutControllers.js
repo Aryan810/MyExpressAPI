@@ -29,11 +29,22 @@ const getWorkout = async (req, res) => {
 // create a workout
 const createWorkout = async (req, res) => {
     const {title, load, reps} = req.body;
+    const emptyFields = [];
+    if (!title){
+        emptyFields.push('Title');
+    }
+    if (!load){
+        emptyFields.push('Load');
+    }
+    if (!reps){
+        emptyFields.push('Repetations');
+    }
     try{
+
         const workout = await Workout.create({title, load, reps});
         res.status(200).json(workout);
     }catch (error){
-        res.status(400).json({error: error.message});
+        res.status(400).json({error: error.message, empty: emptyFields});
     }
 };  
 
