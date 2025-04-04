@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const getWorkouts = async (req, res) => {
     const workouts = await Workout.find({}).sort({createdAt: -1});
     res.status(200).json(workouts);
-
 };
 
 // get a single workout
@@ -19,7 +18,6 @@ const getWorkout = async (req, res) => {
         if (!workout){
             return res.status(400).json({error: "Entey not found !"});
         }
-        
         res.status(200).json(workout);
     }catch (error){
         res.status(400).json({error: error});

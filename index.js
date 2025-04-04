@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
+
 require('dotenv').config();
 const workoutRoutes = require('./routes/workouts');
 
@@ -15,7 +17,9 @@ app.use((req, res, next)=>{
 
 // routes
 app.get("/", (req, res) => {
-    res.json({mssg: "Welcome to my app!"})
+    // res.json({mssg: "Welcome to my app!"})
+    const filePath = path.join(__dirname, 'files', 'welcome.html');
+    res.sendFile(filePath);
 })
 
 app.use('/api/workouts', workoutRoutes); // use the routes written in ./routes/workouts.js......just writes all routes writte in this files here.
