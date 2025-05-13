@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const cors = require('cors');
+// const cors = require('cors');
 
 require('dotenv').config();
 const workoutRoutes = require('./routes/workouts');
@@ -10,7 +10,7 @@ const dynamoRoutes = require('./routes/dynamo')
 
 // express app
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 // middle ware
 app.use(express.json()); // if req has some data, this adds it to req. object.
